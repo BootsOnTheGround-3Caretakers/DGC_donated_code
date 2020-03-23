@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>App engine task queue functions</name>
+	<comment></comment>
+	<projects>
+		<project>Datastore Functions</project>
+		<project>DataValidation</project>
+		<project>Watchdog back end global includes</project>
+		<project>Watchdog billing global includes</project>
+		<project>Watchdog Billing Global Includes</project>
+		<project>Watchdog user interface global includes</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.python.pydev.PyDevBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.python.pydev.pythonNature</nature>
+	</natures>
+</projectDescription>
