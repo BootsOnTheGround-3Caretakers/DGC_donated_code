@@ -1026,6 +1026,28 @@ class DataValidation():
         
         return {'success': True,'return_msg': return_msg}
     
+    def __AZaz09(self, value):
+        return_msg = 'DataValidation:__AZaz09 '
+
+        if not value.isalnum():
+            return_msg += "value should only contain alpha-numeric characters. its %s" % value
+            return {'success': False, 'return_msg': return_msg}
+
+        return {'success': True, 'return_msg': return_msg}
+    
+    def __phoneTextValidator(self, value):
+        return_msg = 'DataValidation:__phoneTextValidator '
+
+        if len(value) != 3:
+            return_msg += "value must contain 3 characters. its %s" % value
+            return {'success': False, 'return_msg': return_msg}
+        
+        for char in value:
+            if (char != "a" and char != "b"):
+                return_msg += "value must only contain 'a' or 'b'. its %s" % value
+                return {'success': False, 'return_msg': return_msg}
+        return {'success': True, 'return_msg': return_msg}
+    
     
     def checkValues(self,values_list):
         call_result = {}
@@ -1076,7 +1098,8 @@ class DataValidation():
                          self.__2or3,self.__less65536,self.__objectAttributeSettableValueType,
                          self.__less20000,self.__lenLessThan102400,self.__datastoreUpdateType,
                          self.__date_string_YYYY_MM_DD,self.__len512,self.__is_function,
-                         self.__SequenceLength1,self.__2to4,self.__baud_rate,self.__millitary_time
+                         self.__SequenceLength1,self.__2to4,self.__baud_rate,self.__millitary_time,
+                         self.__AZaz09, self.__phoneTextValidator
                          ]
         
         types_list = (int,float,str,str,list,dict,object,bool)
