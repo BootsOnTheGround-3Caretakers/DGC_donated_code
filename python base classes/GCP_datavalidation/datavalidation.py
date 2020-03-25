@@ -1096,6 +1096,28 @@ class DataValidation():
             return {'success': False, 'return_msg': return_msg, 'debug_data': debug_data}
 
         return {'success': True, 'return_msg': return_msg}
+    
+    def __AZaz09(self, value):
+        return_msg = 'DataValidation:__AZaz09 '
+
+        if not value.isalnum():
+            return_msg += "value should only contain alpha-numeric characters. its %s" % value
+            return {'success': False, 'return_msg': return_msg}
+
+        return {'success': True, 'return_msg': return_msg}
+    
+    def __phoneTextValidator(self, value):
+        return_msg = 'DataValidation:__phoneTextValidator '
+
+        if len(value) != 3:
+            return_msg += "value must contain 3 characters. its %s" % value
+            return {'success': False, 'return_msg': return_msg}
+        
+        for char in value:
+            if (char != "a" and char != "b"):
+                return_msg += "value must only contain 'a' or 'b'. its %s" % value
+                return {'success': False, 'return_msg': return_msg}
+        return {'success': True, 'return_msg': return_msg}
 
 
     def checkValues(self,values):
@@ -1150,7 +1172,7 @@ class DataValidation():
                          self.__userUidWithPrefix,
                          self.__lenLess241, self.__NdbKey,
                          self.__object_uid_with_prefix, self.__objectAttributeUidWithPrefix,
-                         self.__system_uid_with_prefix,self.__listOfUidsNumbers
+                         self.__system_uid_with_prefix,self.__listOfUidsNumbers, self.__AZaz09, self.__phoneTextValidator
                          ]
         
         types_list = (int,float,str,unicode,long,list,dict,InstanceType,object,bool)
