@@ -1,1 +1,0 @@
-gcloud -q --project=dgnet-watchdog app deploy --version 2 3>> upload_log.txt
