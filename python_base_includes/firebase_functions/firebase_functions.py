@@ -31,7 +31,8 @@ class FieldKeys():
     cluster_uid = "cluster_uid"
     needer_uid = "needer_uid"
     deletion_prevention_key = "deletion_prevention_key"
-
+    name = "name"
+    requirements = "requirements"
 ##</end> universal keys    
 
 ## user/ keys
