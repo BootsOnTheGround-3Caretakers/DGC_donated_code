@@ -105,7 +105,24 @@ venv.bak/
 
 #pycharm
 .idea/
-
+python_base_includes/datastore_functions/.idea/
+python_base_includes/firebase_functions/.idea/
+python_base_includes/firebase_updater/.idea/
+python_base_includes/GCP_datastore_logging/.idea/
+python_base_includes/GCP_datavalidation/.idea/
+python_base_includes/GCP_memache_utilities/.idea/
+python_base_includes/GCP_memcache/.idea/
+python_base_includes/GCP_return_codes/.idea/
+python_base_includes/GCP_task_queue_functions/.idea/
+python_base_includes/GCP_dgnet_watchdog_permissions_verifier/.idea/
+python_base_includes/permission_functions/.idea/
+python_base_includes/python3_datavalidation/.idea/
+python_base_includes/python3_error_handling/.idea/
+python_base_includes/Solve360Sql/.idea/
+python_base_includes/SQL functions/.idea/
+python_base_includes/task_queue_functions/.idea/
+python_base_includes/tupple tree manipulation/.idea/
+python_base_includes/XML DB Class/.idea/
 
 
 
