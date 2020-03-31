@@ -53,6 +53,10 @@ class FieldKeys():
     expiration_date = "expiration_date"
 ##</end> cluster keys
 
+## skill keys
+    skill_type = "skill_type"
+##</end> skill keys
+
 
 class FirebaseField(DataValidation):
     functions = FirebaseFunctions
