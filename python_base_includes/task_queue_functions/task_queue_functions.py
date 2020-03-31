@@ -38,7 +38,7 @@ from GCP_return_codes import FunctionReturnCodes as RC
 
 ### datastores for logging data
 
-class SuccessLog(ndb.Model):
+class LogSuccess(ndb.Model):
     task_id=ndb.StringProperty(required=False)
     params=ndb.TextProperty(required=False)
     name=ndb.StringProperty(required=False)
@@ -49,7 +49,7 @@ class SuccessLog(ndb.Model):
     datetime_stamp = ndb.DateTimeProperty(required=False,auto_now_add=True)
 
 
-class GeneralErrorLog(ndb.Model):
+class LogGeneralError(ndb.Model):
     task_id=ndb.StringProperty(required=False)
     params=ndb.TextProperty(required=False)
     name=ndb.StringProperty(required=False)
@@ -59,7 +59,7 @@ class GeneralErrorLog(ndb.Model):
     transaction_user_uid=ndb.StringProperty(required=False)
     datetime_stamp = ndb.DateTimeProperty(required=False,auto_now_add=True)
 
-class FirebaseReplicationLog(ndb.Model):
+class LogFirebaseReplication(ndb.Model):
     task_id=ndb.StringProperty(required=False)
     params=ndb.TextProperty(required=False)
     name=ndb.StringProperty(required=False)
@@ -69,19 +69,7 @@ class FirebaseReplicationLog(ndb.Model):
     transaction_user_uid=ndb.StringProperty(required=False)
     datetime_stamp = ndb.DateTimeProperty(required=False,auto_now_add=True)
 
-class DatastoreFailure(ndb.Model):
-    task_id=ndb.StringProperty(required=False)
-    params=ndb.TextProperty(required=False)
-    name=ndb.StringProperty(required=False)
-    transaction_id=ndb.StringProperty(required=False)
-    error_msg=ndb.StringProperty(required=False)
-    debug_data=ndb.TextProperty(required=False)
-    transaction_user_uid=ndb.StringProperty(required=False)
-    datetime_stamp = ndb.DateTimeProperty(required=False,auto_now_add=True)
-
-
-
-class SqlFailureLog(ndb.Model):
+class LogDatastoreFailure(ndb.Model):
     task_id=ndb.StringProperty(required=False)
     params=ndb.TextProperty(required=False)
     name=ndb.StringProperty(required=False)
@@ -93,8 +81,7 @@ class SqlFailureLog(ndb.Model):
 
 
 
-
-class InputValidationLog(ndb.Model):
+class LogSqlFailure(ndb.Model):
     task_id=ndb.StringProperty(required=False)
     params=ndb.TextProperty(required=False)
     name=ndb.StringProperty(required=False)
@@ -106,7 +93,20 @@ class InputValidationLog(ndb.Model):
 
 
 
-class AclCheckLog(ndb.Model):
+
+class LogInputValidation(ndb.Model):
+    task_id=ndb.StringProperty(required=False)
+    params=ndb.TextProperty(required=False)
+    name=ndb.StringProperty(required=False)
+    transaction_id=ndb.StringProperty(required=False)
+    error_msg=ndb.StringProperty(required=False)
+    debug_data=ndb.TextProperty(required=False)
+    transaction_user_uid=ndb.StringProperty(required=False)
+    datetime_stamp = ndb.DateTimeProperty(required=False,auto_now_add=True)
+
+
+
+class LogAclCheck(ndb.Model):
     task_id=ndb.StringProperty(required=False)
     params=ndb.TextProperty(required=False)
     name=ndb.StringProperty(required=False)
@@ -128,7 +128,7 @@ class DeleteTaskLog(ndb.Model):
     transaction_user_uid=ndb.StringProperty(required=False)
     datetime_stamp = ndb.DateTimeProperty(required=False,auto_now_add=True)
 
-class QueuingLog(ndb.Model):
+class LogQueuing(ndb.Model):
     task_id=ndb.StringProperty(required=False)
     params=ndb.TextProperty(required=False)
     name=ndb.StringProperty(required=False)
@@ -139,7 +139,7 @@ class QueuingLog(ndb.Model):
     datetime_stamp = ndb.DateTimeProperty(required=False,auto_now_add=True)
 
 
-class BillingErrorLog(ndb.Model):
+class LogBillingError(ndb.Model):
     task_id=ndb.StringProperty(required=False)
     params=ndb.TextProperty(required=False)
     name=ndb.StringProperty(required=False)
@@ -151,7 +151,7 @@ class BillingErrorLog(ndb.Model):
 
 
 
-class TransactionCreatedLog(ndb.Model):
+class LogTransactionCreated(ndb.Model):
     params=ndb.TextProperty(required=True)
     transaction_id=ndb.StringProperty(required=True)
     datetime_stamp = ndb.DateTimeProperty(required=False,auto_now_add=True)
@@ -167,7 +167,7 @@ class TransactionFinishedLog(ndb.Model):
 #used to track the active number of transactions
 
 
-class TransactionFailedLog(ndb.Model):
+class LogTransactionFailed(ndb.Model):
     transaction_id=ndb.StringProperty(required=True)
     datetime_stamp = ndb.DateTimeProperty(required=False,auto_now_add=True)
     success_code = ndb.IntegerProperty(required=False)
@@ -178,16 +178,16 @@ class TransactionFailedLog(ndb.Model):
 
 class TaskQueueFunctions(DataValidation):
     #~these values matche those in back_end_global_settings.py FunctionReturnCodes
-    log_destinations = [[RC.failed_retry,GeneralErrorLog],
-                        [RC.success,SuccessLog],
-                        [RC.ACL_check_failed,AclCheckLog],
-                        [RC.input_validation_failed,InputValidationLog],
-                        [RC.queuing_task_failed,QueuingLog],
-                        [RC.firebase_replication_retry,FirebaseReplicationLog],
+    log_destinations = [[RC.failed_retry,LogGeneralError],
+                        [RC.success,LogSuccess],
+                        [RC.ACL_check_failed,LogAclCheck],
+                        [RC.input_validation_failed,LogInputValidation],
+                        [RC.queuing_task_failed,LogQueuing],
+                        [RC.firebase_replication_retry,LogFirebaseReplication],
                         [RC.delete_task_failed,DeleteTaskLog],
-                        [RC.datastore_failure,DatastoreFailure],
-                        [RC.sql_failure,SqlFailureLog],
-                        [RC.billing_error,BillingErrorLog]
+                        [RC.datastore_failure,LogDatastoreFailure],
+                        [RC.sql_failure,LogSqlFailure],
+                        [RC.billing_error,LogBillingError]
                         ]
 
 
@@ -219,9 +219,9 @@ class TaskQueueFunctions(DataValidation):
 
         if log_entry == None:
             if log_id != None:
-                log_entry = GeneralErrorLog(id=transaction_id)
+                log_entry = LogGeneralError(id=transaction_id)
             else:
-                log_entry = GeneralErrorLog()
+                log_entry = LogGeneralError()
     ##</end> set which log this entry should go to, if one isn't specified go to the failed retry log
 
         #~the transaction ID that was generated by the create transaction service
@@ -276,7 +276,7 @@ class TaskQueueFunctions(DataValidation):
             return {'success': True, 'return_msg': return_msg,'debug_data' :debug_data}
     ##</end> input validation
 
-        log_entry = TransactionCreatedLog(id=transaction_id)
+        log_entry = LogTransactionCreated(id=transaction_id)
         log_entry.transaction_id = transaction_id
         log_entry.params = unicode(params)
         try:
@@ -303,7 +303,7 @@ class TaskQueueFunctions(DataValidation):
     ##</end> input validation
 
 
-        created_log_key = ndb.Key(TransactionCreatedLog._get_kind(),transaction_id)
+        created_log_key = ndb.Key(LogTransactionCreated._get_kind(),transaction_id)
         try:
             created_log_key.delete()
         except Exception as e:
@@ -335,7 +335,7 @@ class TaskQueueFunctions(DataValidation):
             return {'success': True, 'return_msg': return_msg,'debug_data' :debug_data}
     ##</end> input validation
 
-        log_entry = TransactionFailedLog(id=transaction_id)
+        log_entry = LogTransactionFailed(id=transaction_id)
         log_entry.transaction_id = transaction_id
         if success_code is not None:
             log_entry.success_code = success_code

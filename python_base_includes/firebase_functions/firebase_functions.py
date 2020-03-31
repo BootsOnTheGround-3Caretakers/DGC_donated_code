@@ -22,75 +22,36 @@ class FieldObjectTypes():
         
 class FieldKeys():
 
-
-## notification rule keys
-    rule_logic = 'rule_logic'
-    eval_statement = 'eval'
-    
-##</end> notification rule keys    
-
-## object attribute keys
-    processor_uid = "processor_uid"
-##</end> object attribute keys
-
 ## universal keys
-    name = "name"
-    name_key = "name<~!!~>KEY_REF"
-    description = "description"
-    description_key = "description<~!!~>KEY_REF"
+    country_uid = "country_uid"
+    region_uid = "region_uid"
+    area_uid = "area_uid"
     last_updated = "last_updated"
+    description = "description"
+    cluster_uid = "cluster_uid"
+    needer_uid = "needer_uid"
+    deletion_prevention_key = "deletion_prevention_key"
+
 ##</end> universal keys    
 
 ## user/ keys
     user_first_name = "first_name"
     user_last_name = "last_name"
-    user_uid = "uid"
-    user_web_uid ="web_uid"
-    user_contact_email = "contact_email"
-    user_account_type = "account_type"
-    user_account_email = "firebase_account"
-    user_org_permissions = "permissions"
-##</end> user/ keys    
+    user_uid = "user_uid"
+    phone_1 ="phone_1"
+    phone_2 = "phone_2"
+    phone_texts = 'phone_texts'
+    user_contact_email = "email_address"
+    preferred_radius = "preferred_radius"
+    account_flags = "account_flags"
+    location_cord_long = "location_cord_long"
+    location_cord_lat = "location_cord_lat"
+##</end> user/ keys
 
-## /organization keys
-    org_location = "org_location"
-##</end> /organization keys
+## cluster keys
+    expiration_date = "expiration_date"
+##</end> cluster keys
 
-    object_type = "type"
-    object_type_key = "type<~!!~>KEY_REF"
-    internal_uid = "uid"
-    
-    disabled = "disabled_"
-    child_list="child_list"
-    organization_list= "organization_list"
-    user_list= "user_list"
-    notification_list = "notification_list"
-    processor_list = "system_list"
-    object_list = "object_list"
-    organization_type = "type"
-    organization_type_key = "type<~!!~>KEY_REF"
-    #only for patron organizations
-    organization_partner_name = "partner organization name"
-    organization_partner_uid = "partner_organization_uid"
-    uid = "uid"
-    parent = "parent_"
-    object_attribute_record_datetime = "Last Changed"
-    object_attribute_record_value = "value"
-    object_settable_value_enabled = "is_settable"
-    object_settable_value_type = "settable_value_type"
-    object_settable_value_min = "settable_value_min"
-    object_settable_value_max = "settable_value_max"
-    object_settable_value_string_values = "settable_value_string_values"
-    object_tx_rx_msgs = "tx_rx_msgs"
-    object_log_value = "log_value"
-    object_attribute_rule_eval_rule = "eval_rule"
-    
-    user_id = "user_id"
-    
-    
-    user_update_occurred = "update_occurred"
-    processor_hardware_uid = "System unique identifier"
-    deletion_prevention_key = "deletion_prevention_key"
 
 class FirebaseField(DataValidation):
     functions = FirebaseFunctions
