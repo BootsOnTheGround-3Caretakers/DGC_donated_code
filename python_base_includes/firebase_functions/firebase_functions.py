@@ -29,6 +29,7 @@ class FieldKeys():
     last_updated = "last_updated"
     description = "description"
     cluster_uid = "cluster_uid"
+    need_uid = "need_uid"
     needer_uid = "needer_uid"
     deletion_prevention_key = "deletion_prevention_key"
     name = "name"
@@ -54,6 +55,7 @@ class FieldKeys():
 ##</end> cluster keys
 
 ## skill keys
+    skill_uid = "skill_uid"
     skill_type = "skill_type"
 ##</end> skill keys
 
