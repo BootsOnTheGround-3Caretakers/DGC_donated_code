@@ -35,7 +35,10 @@ class FieldKeys():
     name = "name"
     requirements = "requirements"
     location = "location"
-##</end> universal keys    
+    index_1 = "1"
+    index_2 = "2"
+    index_3 = "3"
+##</end> universal keys
 
 ## user/ keys
     user_first_name = "first_name"
