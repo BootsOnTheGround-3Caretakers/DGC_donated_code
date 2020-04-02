@@ -34,6 +34,7 @@ class FieldKeys():
     deletion_prevention_key = "deletion_prevention_key"
     name = "name"
     requirements = "requirements"
+    location = "location"
 ##</end> universal keys    
 
 ## user/ keys
