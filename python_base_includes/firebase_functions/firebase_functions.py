@@ -49,6 +49,7 @@ class FieldKeys():
     account_flags = "account_flags"
     location_cord_long = "location_cord_long"
     location_cord_lat = "location_cord_lat"
+    roles = "roles"
 ##</end> user/ keys
 
 ## cluster keys
