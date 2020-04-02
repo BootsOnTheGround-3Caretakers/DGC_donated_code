@@ -38,6 +38,8 @@ class FieldKeys():
     index_1 = "1"
     index_2 = "2"
     index_3 = "3"
+    total_capacity = "total_capacity"
+    unused_capacity_now = "unused_capacity_now"
 ##</end> universal keys
 
 ## user/ keys
@@ -62,6 +64,7 @@ class FieldKeys():
 ## skill keys
     skill_uid = "skill_uid"
     skill_type = "skill_type"
+    skill_join_uid = "skill_join_uid"
 ##</end> skill keys
 
 
