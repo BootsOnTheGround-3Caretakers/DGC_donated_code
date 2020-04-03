@@ -40,6 +40,7 @@ class FieldKeys():
     index_3 = "3"
     total_capacity = "total_capacity"
     unused_capacity_now = "unused_capacity_now"
+    special_notes = "special_notes"
 ##</end> universal keys
 
 ## user/ keys
