@@ -29,10 +29,19 @@ class FieldKeys():
     last_updated = "last_updated"
     description = "description"
     cluster_uid = "cluster_uid"
+    need_uid = "need_uid"
     needer_uid = "needer_uid"
     deletion_prevention_key = "deletion_prevention_key"
-
-##</end> universal keys    
+    name = "name"
+    requirements = "requirements"
+    location = "location"
+    index_1 = "1"
+    index_2 = "2"
+    index_3 = "3"
+    total_capacity = "total_capacity"
+    unused_capacity_now = "unused_capacity_now"
+    special_notes = "special_notes"
+##</end> universal keys
 
 ## user/ keys
     user_first_name = "first_name"
@@ -46,11 +55,18 @@ class FieldKeys():
     account_flags = "account_flags"
     location_cord_long = "location_cord_long"
     location_cord_lat = "location_cord_lat"
+    roles = "roles"
 ##</end> user/ keys
 
 ## cluster keys
     expiration_date = "expiration_date"
 ##</end> cluster keys
+
+## skill keys
+    skill_uid = "skill_uid"
+    skill_type = "skill_type"
+    skill_join_uid = "skill_join_uid"
+##</end> skill keys
 
 
 class FirebaseField(DataValidation):
