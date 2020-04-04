@@ -15,7 +15,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../p1s4_gae_create_transaction" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -40,6 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1585631424284</updated>
       <workItem from="1585631425444" duration="699000" />
+      <workItem from="1585956908344" duration="33000" />
     </task>
     <servers />
   </component>
@@ -51,7 +52,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
