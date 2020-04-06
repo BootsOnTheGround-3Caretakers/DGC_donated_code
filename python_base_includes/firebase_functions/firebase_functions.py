@@ -41,6 +41,7 @@ class FieldKeys():
     total_capacity = "total_capacity"
     unused_capacity_now = "unused_capacity_now"
     special_notes = "special_notes"
+    delete = "delete"
 ##</end> universal keys
 
 ## user/ keys
