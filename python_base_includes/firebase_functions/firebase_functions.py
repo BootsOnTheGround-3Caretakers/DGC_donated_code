@@ -57,6 +57,7 @@ class FieldKeys():
     location_cord_long = "location_cord_long"
     location_cord_lat = "location_cord_lat"
     roles = "roles"
+    gender = "gender"
 ##</end> user/ keys
 
 ## cluster keys
